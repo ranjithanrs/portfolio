@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ranjitha N — Digital Marketing Executive</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f1c2e;
+    --navy-mid: #162436;
+    --navy-light: #1e3250;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f8f5ef;
+    --white: #ffffff;
+    --gray: #8a9ab0;
+    --text: #2c3e50;
+    --text-light: #5a6a7e;
+    --border: #e2ddd6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(15,28,46,0.97);
+    backdrop-filter: blur(12px);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 80% 50%, rgba(201,168,76,0.07) 0%, transparent 70%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content { position: relative; max-width: 800px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-badge::before { content: '●'; font-size: 0.5rem; }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    color: var(--white);
+    line-height: 1.05;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    color: rgba(255,255,255,0.55);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-stats {
+    display: flex; gap: 3rem; flex-wrap: wrap;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .stat-item { text-align: left; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    color: var(--gold);
+    font-weight: 700;
+    line-height: 1;
+  }
+  .stat-label {
+    color: rgba(255,255,255,0.45);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+  }
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.8);
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* SECTIONS */
+  section { padding: 100px 5%; }
+  .section-label {
+    display: inline-flex; align-items: center; gap: 10px;
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .section-label::before {
+    content: '';
+    width: 28px; height: 1.5px;
+    background: var(--gold);
+    display: block;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .section-intro {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    max-width: 580px;
+    line-height: 1.7;
+    margin-bottom: 4rem;
+  }
+
+  /* ACHIEVEMENTS */
+  #achievements { background: var(--white); }
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .achievement-card {
+    background: var(--white);
+    padding: 2.5rem;
+    position: relative;
+    transition: background 0.25s;
+    cursor: default;
+  }
+  .achievement-card:hover { background: #fdf9f3; }
+  .ach-icon {
+    width: 46px; height: 46px;
+    background: rgba(201,168,76,0.1);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+  .ach-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .ach-num span { color: var(--gold); }
+  .ach-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .ach-desc {
+    color: var(--text-light);
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .award-banner {
+    margin-top: 3rem;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    border-radius: 12px;
+    padding: 2.5rem 3rem;
+    display: flex; align-items: center; gap: 2rem;
+    position: relative; overflow: hidden;
+  }
+  .award-banner::after {
+    content: '🏆';
+    position: absolute; right: 3rem; top: 50%; transform: translateY(-50%);
+    font-size: 4rem; opacity: 0.15;
+  }
+  .award-tag {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  .award-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--white);
+    font-weight: 600;
+  }
+  .award-text p {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.9rem;
+    margin-top: 4px;
+  }
+
+  /* SKILLS */
+  #skills { background: var(--cream); }
+  .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .skill-category { margin-bottom: 2.5rem; }
+  .skill-cat-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 7px 16px;
+    border-radius: 6px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .skill-tag:hover {
+    border-color: var(--gold);
+    color: var(--navy);
+    background: rgba(201,168,76,0.06);
+  }
+  .skill-tag.primary {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+  .skills-visual {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2.5rem;
+    border: 1px solid var(--border);
+  }
+  .skills-visual h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--navy);
+    margin-bottom: 1.8rem;
+  }
+  .proficiency-item { margin-bottom: 1.4rem; }
+  .prof-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 6px;
+  }
+  .prof-name { font-size: 0.9rem; font-weight: 500; color: var(--text); }
+  .prof-pct { font-size: 0.82rem; font-weight: 600; color: var(--gold); }
+  .prof-bar {
+    height: 5px;
+    background: var(--border);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .prof-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+    border-radius: 100px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .prof-fill.animated { transform: scaleX(1); }
+
+  /* CASE STUDIES */
+  #casestudies { background: var(--navy); }
+  #casestudies .section-title { color: var(--white); }
+  #casestudies .section-intro { color: rgba(255,255,255,0.5); }
+  .cases-tabs {
+    display: flex; gap: 4px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    padding: 4px;
+    width: fit-content;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 9px 20px;
+    border-radius: 5px;
+    border: none;
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn.active {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .tab-btn:not(.active):hover { color: rgba(255,255,255,0.8); }
+  .case-panel { display: none; animation: fadeIn 0.4s ease; }
+  .case-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .case-info { color: var(--white); }
+  .case-tag {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    color: var(--gold);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.2rem;
+  }
+  .case-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .case-info p {
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  .case-scope {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 2rem;
+  }
+  .scope-pill {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7);
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+  }
+  .case-metrics {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 12px;
+    padding: 2rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  }
+  .metric-item {}
+  .metric-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .metric-label {
+    color: rgba(255,255,255,0.45);
+    font-size: 0.8rem;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  /* TOOLS */
+  #tools { background: var(--white); }
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  .tool-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.4rem 1.2rem;
+    text-align: center;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .tool-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: 0 8px 24px rgba(201,168,76,0.1);
+  }
+  .tool-icon { font-size: 1.8rem; margin-bottom: 0.7rem; display: block; }
+  .tool-name { font-size: 0.82rem; font-weight: 600; color: var(--text); }
+  .tool-cat { font-size: 0.72rem; color: var(--text-light); margin-top: 2px; }
+
+  /* CONTACT */
+  #contact { background: var(--navy); text-align: center; }
+  #contact .section-label { justify-content: center; }
+  #contact .section-title { color: var(--white); }
+  .contact-grid {
+    display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+    margin-top: 3rem;
+  }
+  .contact-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 1.5rem 2.5rem;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: border-color 0.2s, color 0.2s;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .contact-card:hover { border-color: var(--gold); color: var(--gold); }
+  .contact-card span { font-size: 1.2rem; }
+  footer {
+    background: rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 2rem 5%;
+    text-align: center;
+    color: rgba(255,255,255,0.25);
+    font-size: 0.8rem;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @media (max-width: 768px) {
+    .skills-layout, .case-panel.active { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.8rem; }
+    nav .nav-links { display: none; }
+    .award-banner { flex-direction: column; align-items: flex-start; }
+    .award-banner::after { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Ranjitha N.</div>
+  <ul class="nav-links">
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#casestudies">Case Studies</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Digital Marketing Executive · 3+ Years</div>
+    <h1>Ranjitha <span>N.</span></h1>
+    <p class="hero-sub">Performance marketing specialist driving measurable results through data-driven campaigns, CRM automation, and multi-channel strategy at Pantech Solutions India.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">60%</div>
+        <div class="stat-label">ROI on Paid Campaigns</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2×</div>
+        <div class="stat-label">Conversion Growth</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">50%</div>
+        <div class="stat-label">Email Open Rate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">34K+</div>
+        <div class="stat-label">Profile Views (GMB)</div>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="#casestudies" class="btn-primary">View Case Studies</a>
+      <a href="https://www.linkedin.com/in/ranjitha-nrs-452084224/" target="_blank" class="btn-outline">LinkedIn Profile</a>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-label">Results</div>
+  <h2 class="section-title">Key Achievements</h2>
+  <p class="section-intro">Quantifiable outcomes from 3+ years of executing performance-driven digital marketing strategies.</p>
+
+  <div class="achievements-grid">
+    <div class="achievement-card">
+      <div class="ach-icon">📈</div>
+      <div class="ach-num">60<span>%</span></div>
+      <div class="ach-title">ROI on Paid Campaigns</div>
+      <div class="ach-desc">Achieved through targeted audience strategies on Facebook & Instagram with continuous A/B testing and budget optimization.</div>
+    </div>
+    <div class="achievement-card">
+      <div class="ach-icon">🔄</div>
+      <div class="ach-num">2<span>×</span></div>
+      <div class="ach-title">Conversion Growth</div>
+      <div class="ach-desc">Doubled conversions within 5 months by implementing CRM automation and personalized lead nurturing flows.</div>
+    </div>
+    <div class="achievement-card">
+      <div class="ach-icon">💌</div>
+      <div class="ach-num">50<span>%</span></div>
+      <div class="ach-title">Email Open Rate</div>
+      <div class="ach-desc">Surpassing industry averages through behavioral segmentation, personalization, and automated sequences in ConvertKit.</div>
+    </div>
+    <div class="achievement-card">
+      <div class="ach-icon">👆</div>
+      <div class="ach-num">35<span>%</span></div>
+      <div class="ach-title">Email Click-Through Rate</div>
+      <div class="ach-desc">Achieved through audience segmentation, relevant content strategy, and precise call-to-action placement.</div>
+    </div>
+    <div class="achievement-card">
+      <div class="ach-icon">🌐</div>
+      <div class="ach-num">25<span>%</span></div>
+      <div class="ach-title">Website Traffic Increase</div>
+      <div class="ach-desc">Driven by optimized multi-channel campaigns across paid, social, and organic search channels.</div>
+    </div>
+    <div class="achievement-card">
+      <div class="ach-icon">❤️</div>
+      <div class="ach-num">40<span>%</span></div>
+      <div class="ach-title">Engagement Improvement</div>
+      <div class="ach-desc">Improved customer engagement through consistent social media strategy and CRM-powered communication workflows.</div>
+    </div>
+  </div>
+
+  <div class="award-banner">
+    <div class="award-tag">🏆 Award</div>
+    <div class="award-text">
+      <h3>Emerging Marketing Maestro</h3>
+      <p>Recognized for outstanding performance in marketing and sales at Pantech Solutions India Pvt. Ltd.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Expertise</div>
+  <h2 class="section-title">Skills & Competencies</h2>
+  <p class="section-intro">A comprehensive mix of strategic thinking, creative execution, and data-led optimization.</p>
+
+  <div class="skills-layout">
+    <div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Core Strategy</div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Digital Marketing Strategy</span>
+          <span class="skill-tag primary">Lead Generation</span>
+          <span class="skill-tag primary">Performance Marketing</span>
+          <span class="skill-tag">Market Research</span>
+          <span class="skill-tag">Competitor Analysis</span>
+          <span class="skill-tag">A/B Testing</span>
+          <span class="skill-tag">CRO</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Paid Advertising</div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Google Ads</span>
+          <span class="skill-tag primary">Meta Ads (FB & IG)</span>
+          <span class="skill-tag">Google Keyword Planner</span>
+          <span class="skill-tag">Google Trends</span>
+          <span class="skill-tag">Campaign Optimization</span>
+          <span class="skill-tag">Budget Allocation</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Automation & CRM</div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">CRM Automation</span>
+          <span class="skill-tag primary">WhatsApp Automation</span>
+          <span class="skill-tag">Email Automation</span>
+          <span class="skill-tag">Pabbly Connect</span>
+          <span class="skill-tag">Lead Nurturing</span>
+          <span class="skill-tag">Workflow Automation</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-cat-title">Social & Content</div>
+        <div class="skill-tags">
+          <span class="skill-tag">SMM & SMO</span>
+          <span class="skill-tag">Content Creation</span>
+          <span class="skill-tag">Canva Design</span>
+          <span class="skill-tag">YouTube SEO</span>
+          <span class="skill-tag">WordPress</span>
+          <span class="skill-tag">Community Management</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-visual">
+      <h3>Proficiency Overview</h3>
+      <div class="proficiency-item">
+        <div class="prof-header"><span class="prof-name">Meta Ads (FB/IG)</span><span class="prof-pct">95%</span></div>
+        <div class="prof-bar"><div class="prof-fill" style="--w:0.95"></div></div>
+      </div>
+      <div class="proficiency-item">
+        <div class="prof-header"><span class="prof-name">CRM & Email Automation</span><span class="prof-pct">92%</span></div>
+        <div class="prof-bar"><div class="prof-fill" style="--w:0.92"></div></div>
+      </div>
+      <div class="proficiency-item">
+        <div class="prof-header"><span class="prof-name">Google Ads & SEO</span><span class="prof-pct">88%</span></div>
+        <div class="prof-bar"><div class="prof-fill" style="--w:0.88"></div></div>
+      </div>
+      <div class="proficiency-item">
+        <div class="prof-header"><span class="prof-name">WhatsApp Marketing</span><span class="prof-pct">90%</span></div>
+        <div class="prof-bar"><div class="prof-fill" style="--w:0.90"></div></div>
+      </div>
+      <div class="proficiency-item">
+        <div class="prof-header"><span class="prof-name">Social Media Strategy</span><span class="prof-pct">85%</span></div>
+        <div class="prof-bar"><div class="prof-fill" style="--w:0.85"></div></div>
+      </div>
+      <div class="proficiency-item">
+        <div class="prof-header"><span class="prof-name">Content Design (Canva)</span><span class="prof-pct">87%</span></div>
+        <div class="prof-bar"><div class="prof-fill" style="--w:0.87"></div></div>
+      </div>
+      <div class="proficiency-item">
+        <div class="prof-header"><span class="prof-name">Analytics & Reporting</span><span class="prof-pct">88%</span></div>
+        <div class="prof-bar"><div class="prof-fill" style="--w:0.88"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="casestudies">
+  <div class="section-label">Portfolio</div>
+  <h2 class="section-title">Case Studies</h2>
+  <p class="section-intro">Real campaigns. Real results. Five projects showcasing end-to-end marketing execution.</p>
+
+  <div class="cases-tabs">
+    <button class="tab-btn active" onclick="showCase(0)">Meta Ads</button>
+    <button class="tab-btn" onclick="showCase(1)">Email Automation</button>
+    <button class="tab-btn" onclick="showCase(2)">Local SEO</button>
+    <button class="tab-btn" onclick="showCase(3)">WhatsApp</button>
+    <button class="tab-btn" onclick="showCase(4)">Social Media</button>
+  </div>
+
+  <!-- Case 1 -->
+  <div class="case-panel active" id="case-0">
+    <div class="case-info">
+      <div class="case-tag">Meta Ads · FB / IG / WhatsApp</div>
+      <h3>Improving ROI on Facebook & Instagram Campaigns</h3>
+      <p>Ran lead generation campaigns across Facebook and Instagram for multiple programs, improving performance through audience targeting refinement and continuous creative optimization — increasing lead volume while keeping cost per result controlled.</p>
+      <div class="case-scope">
+        <span class="scope-pill">Campaign Setup</span>
+        <span class="scope-pill">Audience Strategy</span>
+        <span class="scope-pill">Creative Testing</span>
+        <span class="scope-pill">Budget Optimization</span>
+        <span class="scope-pill">Reporting</span>
+      </div>
+      <p style="color:rgba(255,255,255,0.4);font-size:0.82rem;">25 campaigns · Jan 2025 – Mar 2026 · Up to 2,111 leads per campaign</p>
+    </div>
+    <div class="case-metrics">
+      <div class="metric-item"><div class="metric-val">60%</div><div class="metric-label">ROI Achieved</div></div>
+      <div class="metric-item"><div class="metric-val">2,111</div><div class="metric-label">Max Leads / Campaign</div></div>
+      <div class="metric-item"><div class="metric-val">₹7.95</div><div class="metric-label">Min Cost Per Lead</div></div>
+      <div class="metric-item"><div class="metric-val">727K</div><div class="metric-label">Peak Impressions</div></div>
+      <div class="metric-item"><div class="metric-val">237K</div><div class="metric-label">Peak Reach</div></div>
+      <div class="metric-item"><div class="metric-val">4,455</div><div class="metric-label">Max Link Clicks</div></div>
+    </div>
+  </div>
+
+  <!-- Case 2 -->
+  <div class="case-panel" id="case-1">
+    <div class="case-info">
+      <div class="case-tag">Email · ConvertKit / Kit</div>
+      <h3>Email Segmentation & Automation for Higher Engagement</h3>
+      <p>Built segmented email campaigns and automated flows in ConvertKit to improve engagement and click rates. Focused on personalization and behavioral nurturing to increase conversions from existing leads.</p>
+      <div class="case-scope">
+        <span class="scope-pill">Segmentation Strategy</span>
+        <span class="scope-pill">Personalization</span>
+        <span class="scope-pill">Automation Flows</span>
+        <span class="scope-pill">A/B Testing</span>
+      </div>
+    </div>
+    <div class="case-metrics">
+      <div class="metric-item"><div class="metric-val">50%</div><div class="metric-label">Open Rate</div></div>
+      <div class="metric-item"><div class="metric-val">35%</div><div class="metric-label">Click-Through Rate</div></div>
+      <div class="metric-item"><div class="metric-val">2×</div><div class="metric-label">Conversion Growth</div></div>
+      <div class="metric-item"><div class="metric-val">3</div><div class="metric-label">Automation Tools Used</div></div>
+    </div>
+  </div>
+
+  <!-- Case 3 -->
+  <div class="case-panel" id="case-2">
+    <div class="case-info">
+      <div class="case-tag">Local SEO · Google Business Profile</div>
+      <h3>Boosting Local Visibility via Google Business Profile</h3>
+      <p>Optimized the Google My Business listing for Pantech Elearning (Chennai), improving local search visibility and driving more customer actions — including direction requests, calls, and website visits.</p>
+      <div class="case-scope">
+        <span class="scope-pill">Profile Optimization</span>
+        <span class="scope-pill">Keyword Strategy</span>
+        <span class="scope-pill">Review Management</span>
+        <span class="scope-pill">Performance Tracking</span>
+      </div>
+    </div>
+    <div class="case-metrics">
+      <div class="metric-item"><div class="metric-val">34K+</div><div class="metric-label">Profile Views</div></div>
+      <div class="metric-item"><div class="metric-val">15K</div><div class="metric-label">Search Appearances</div></div>
+      <div class="metric-item"><div class="metric-val">2,197</div><div class="metric-label">Direction Requests</div></div>
+      <div class="metric-item"><div class="metric-val">4.6★</div><div class="metric-label">Rating (8,901 Reviews)</div></div>
+    </div>
+  </div>
+
+  <!-- Case 4 -->
+  <div class="case-panel" id="case-3">
+    <div class="case-info">
+      <div class="case-tag">WhatsApp · AiSensy / Wapi / WASender</div>
+      <h3>WhatsApp Automation for Lead Nurturing & Conversions</h3>
+      <p>Set up end-to-end WhatsApp automation to respond instantly, nurture leads through qualification flows, and increase conversion rates. Built welcome sequences, broadcast campaigns, and lead tagging (hot/warm/cold).</p>
+      <div class="case-scope">
+        <span class="scope-pill">Flow Planning</span>
+        <span class="scope-pill">Message Templates</span>
+        <span class="scope-pill">Lead Segmentation</span>
+        <span class="scope-pill">Broadcast Campaigns</span>
+      </div>
+    </div>
+    <div class="case-metrics">
+      <div class="metric-item"><div class="metric-val">3</div><div class="metric-label">Automation Tools</div></div>
+      <div class="metric-item"><div class="metric-val">Hot/Warm/Cold</div><div class="metric-label">Lead Qualification Tags</div></div>
+      <div class="metric-item"><div class="metric-val">Auto</div><div class="metric-label">Welcome + Follow-Up</div></div>
+      <div class="metric-item"><div class="metric-val">↑</div><div class="metric-label">Faster Response Time</div></div>
+    </div>
+  </div>
+
+  <!-- Case 5 -->
+  <div class="case-panel" id="case-4">
+    <div class="case-info">
+      <div class="case-tag">Social Media · FB / IG / LinkedIn</div>
+      <h3>Social Media Growth for Pantech E Learning</h3>
+      <p>Managed and optimized social media presence across Facebook, Instagram, and LinkedIn. Used consistent posting schedules, content calendars, and Hootsuite analytics to drive engagement and audience growth over a 3-month period.</p>
+      <div class="case-scope">
+        <span class="scope-pill">Content Planning</span>
+        <span class="scope-pill">Scheduling (Hootsuite)</span>
+        <span class="scope-pill">Analytics Review</span>
+        <span class="scope-pill">Community Support</span>
+      </div>
+    </div>
+    <div class="case-metrics">
+      <div class="metric-item"><div class="metric-val">+20%</div><div class="metric-label">Engagement (3 Months)</div></div>
+      <div class="metric-item"><div class="metric-val">+38%</div><div class="metric-label">LinkedIn Follower Growth</div></div>
+      <div class="metric-item"><div class="metric-val">+13.7%</div><div class="metric-label">Employee Count YoY</div></div>
+      <div class="metric-item"><div class="metric-val">3</div><div class="metric-label">Channels Managed</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="section-label">Tech Stack</div>
+  <h2 class="section-title">Tools & Platforms</h2>
+  <p class="section-intro">Hands-on experience across the full digital marketing technology stack.</p>
+  <div class="tools-grid">
+    <div class="tool-card"><span class="tool-icon">📣</span><div class="tool-name">Google Ads</div><div class="tool-cat">Paid Advertising</div></div>
+    <div class="tool-card"><span class="tool-icon">📘</span><div class="tool-name">Meta Ads</div><div class="tool-cat">Paid Advertising</div></div>
+    <div class="tool-card"><span class="tool-icon">📧</span><div class="tool-name">ConvertKit</div><div class="tool-cat">Email Automation</div></div>
+    <div class="tool-card"><span class="tool-icon">📊</span><div class="tool-name">Zoho Campaigns</div><div class="tool-cat">Email Automation</div></div>
+    <div class="tool-card"><span class="tool-icon">💌</span><div class="tool-name">Flodesk</div><div class="tool-cat">Email Automation</div></div>
+    <div class="tool-card"><span class="tool-icon">🔗</span><div class="tool-name">Pabbly Connect</div><div class="tool-cat">Workflow Automation</div></div>
+    <div class="tool-card"><span class="tool-icon">💬</span><div class="tool-name">AiSensy</div><div class="tool-cat">WhatsApp Marketing</div></div>
+    <div class="tool-card"><span class="tool-icon">📱</span><div class="tool-name">WASender / Wapi</div><div class="tool-cat">WhatsApp Marketing</div></div>
+    <div class="tool-card"><span class="tool-icon">🦉</span><div class="tool-name">Hootsuite</div><div class="tool-cat">Social Media</div></div>
+    <div class="tool-card"><span class="tool-icon">📍</span><div class="tool-name">Google My Business</div><div class="tool-cat">Local SEO</div></div>
+    <div class="tool-card"><span class="tool-icon">📈</span><div class="tool-name">Google Analytics</div><div class="tool-cat">Analytics</div></div>
+    <div class="tool-card"><span class="tool-icon">🎨</span><div class="tool-name">Canva</div><div class="tool-cat">Content Design</div></div>
+    <div class="tool-card"><span class="tool-icon">▶️</span><div class="tool-name">TubeBuddy / VidIQ</div><div class="tool-cat">YouTube SEO</div></div>
+    <div class="tool-card"><span class="tool-icon">🌐</span><div class="tool-name">WordPress</div><div class="tool-cat">CMS</div></div>
+    <div class="tool-card"><span class="tool-icon">⚡</span><div class="tool-name">Elementor</div><div class="tool-cat">CMS / Web Builder</div></div>
+    <div class="tool-card"><span class="tool-icon">🔍</span><div class="tool-name">Google Trends</div><div class="tool-cat">Research</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get in Touch</div>
+  <h2 class="section-title">Let's Connect</h2>
+  <p class="section-intro" style="margin: 0 auto 1rem; text-align:center;">Open to new opportunities in digital marketing, performance marketing, and growth roles.</p>
+  <div class="contact-grid">
+    <a class="contact-card" href="tel:+919080748433"><span>📞</span> +91 908 074 8433</a>
+    <a class="contact-card" href="mailto:ranjitha82029@gmail.com"><span>✉️</span> ranjitha82029@gmail.com</a>
+    <a class="contact-card" href="https://www.linkedin.com/in/ranjitha-nrs-452084224/" target="_blank"><span>💼</span> LinkedIn Profile</a>
+    <a class="contact-card" href="#"><span>📍</span> Trichy, Tamil Nadu</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Ranjitha N. · Digital Marketing Executive · Trichy, Tamil Nadu</p>
+</footer>
+
+<script>
+  // Tab switching
+  function showCase(idx) {
+    document.querySelectorAll('.case-panel').forEach((p,i) => {
+      p.classList.toggle('active', i === idx);
+    });
+    document.querySelectorAll('.tab-btn').forEach((b,i) => {
+      b.classList.toggle('active', i === idx);
+    });
+  }
+
+  // Animate progress bars on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.prof-fill').forEach(fill => {
+          const w = fill.style.getPropertyValue('--w') || '1';
+          fill.style.width = (parseFloat(w) * 100) + '%';
+          fill.classList.add('animated');
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const skillsSection = document.querySelector('#skills');
+  if (skillsSection) observer.observe(skillsSection);
+
+  // Scroll-based nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current
+        ? 'var(--gold)' : '';
+    });
+  });
+</script>
+</body>
+</html>
